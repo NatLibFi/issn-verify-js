@@ -1,31 +1,6 @@
 {
   "name": "@natlibfi/issn-verify",
-  "version": "1.0.6",
-  "homepage": "https://github.com/malantonio/issn-verify-js",
-  "bugs": {
-    "url": "https://github.com/malantonio/issn-verify-js/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/malantonio/issn-verify-js"
-  },
   "description": "Verify ISSN (International Standard Serial Number)",
-  "main": "issnVerify.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "devDependencies": {
-    "tape": "^5.8.1"
-  },
-  "scripts": {
-    "test": "node test/test.js"
-  },
-  "keywords": [
-    "issn"
-  ],
   "contributors": [
     {
       "name": "Adam Malantonio"
@@ -34,5 +9,36 @@
       "name": "The National Library of Finland"
     }
   ],
-  "license": "MIT"
+  "keywords": [
+    "issn"
+  ],
+  "homepage": "https://www.npmjs.com/package/@natlibfi/issn-verify",
+  "bugs": {
+    "url": "https://github.com/NatLibFi/issn-verify-js/issues"
+  },
+  "repository": {
+    "url": "https://github.com/NatLibFi/issn-verify-js"
+  },
+  "license": "MIT",
+  "version": "1.0.6",
+  "main": "./dist/issnVerify.js",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "esbuild \"src/**/*.js\" --sourcemap --platform=node --outdir=dist",
+    "lint": "eslint ./src",
+    "test": "npm run lint && npm run test:base",
+    "test:base": "node --test --experimental-test-coverage --test-reporter=spec './test/*.test.js'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "esbuild": "^0.25.11",
+    "eslint": "^9.38.0"
+  }
 }
