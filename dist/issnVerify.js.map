@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/issnVerify.js"],
+  "sourcesContent": ["export function issn(input) {\n    if (input.length < 8) {\n        input = input.padStart(8, '0');\n    }\n\n    const reg = /^\\d{4}\\-?\\d{3}[\\dX]$/;\n    if (!input.match(reg)) {\n        return false;\n    }\n\n    const num = input.substr(0, (input.length - 1))\n        .replace(/\\-/, '')\n        .split('')\n        .reverse()\n        .reduce(function (prv, cur, idx) {\n            let i = idx + 2;\n            return prv + (cur * i);\n        }, 0)\n        % 11;\n\n    const check = num === 0 ? 0 : 11 - num;\n\n    if (check === 10) {\n        return \"X\" === input.substr(-1);\n    }\n\n    return check === parseInt(input.substr(-1));\n}\n"],
+  "mappings": "AAAO,gBAAS,KAAK,OAAO;AACxB,MAAI,MAAM,SAAS,GAAG;AAClB,YAAQ,MAAM,SAAS,GAAG,GAAG;AAAA,EACjC;AAEA,QAAM,MAAM;AACZ,MAAI,CAAC,MAAM,MAAM,GAAG,GAAG;AACnB,WAAO;AAAA,EACX;AAEA,QAAM,MAAM,MAAM,OAAO,GAAI,MAAM,SAAS,CAAE,EACzC,QAAQ,MAAM,EAAE,EAChB,MAAM,EAAE,EACR,QAAQ,EACR,OAAO,SAAU,KAAK,KAAK,KAAK;AAC7B,QAAI,IAAI,MAAM;AACd,WAAO,MAAO,MAAM;AAAA,EACxB,GAAG,CAAC,IACF;AAEN,QAAM,QAAQ,QAAQ,IAAI,IAAI,KAAK;AAEnC,MAAI,UAAU,IAAI;AACd,WAAO,QAAQ,MAAM,OAAO,EAAE;AAAA,EAClC;AAEA,SAAO,UAAU,SAAS,MAAM,OAAO,EAAE,CAAC;AAC9C;",
+  "names": []
+}
