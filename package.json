@@ -37,7 +37,7 @@
     "test:base": "node --test --experimental-test-coverage --test-reporter=spec './test/*.test.js'"
   },
   "devDependencies": {
-    "esbuild": "^0.27.7",
+    "esbuild": "^0.28.0",
     "eslint": "^10.3.0"
   }
 }
