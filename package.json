@@ -20,7 +20,7 @@
     "url": "git+https://github.com/NatLibFi/issn-verify-js.git"
   },
   "license": "MIT",
-  "version": "2.0.4-alpha.5",
+  "version": "2.0.4-alpha.6",
   "main": "./dist/issnVerify.js",
   "type": "module",
   "engines": {
